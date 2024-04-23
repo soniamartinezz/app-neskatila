@@ -1,6 +1,7 @@
 const axios = require('axios');
+require('dotenv').config()
 const apiUrl = 'https://api.itzuli.vicomtech.org/';
-const apiKey = '49283693744747fe5118f3514f233bdfbfe15538b56b04a8f60e97de4148c444';
+const apiKey = process.env.API_KEY
 
 // Configuración de la solicitud HTTP
 const config = {
