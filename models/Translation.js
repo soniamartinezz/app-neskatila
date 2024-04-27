@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const TranslationSchema = new mongoose.Schema({
-    email: String,
+    userName: String,
     texto: [],
 }, { timestamps: true });
 
