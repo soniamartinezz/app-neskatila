@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const controllerApp = require('../controllers/controller');
+const Translation = require("../models/Translation")
 
 // Ruta (GET/POST) para realizar la traducción
 router.all('/', async (req, res) => {
@@ -27,5 +28,19 @@ router.all('/', async (req, res) => {
         console.error(error);
     }
 });
+
+// Ruta (GET/POST) para el guardado de traducción
+
+router.post("/create", async (req, res) =>{
+    try {
+        const translationUserName = req.body.email;
+        const translationText = req.body.Text;
+        const translation = new Translation ({userName: translationUserName, text: translationText})
+        await translation.save()
+        res.status(201).json(translation)
+    } catch (error) {
+        console.log(error)
+    }
+})
 
 module.exports = router;
