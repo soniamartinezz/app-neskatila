@@ -4,12 +4,13 @@ const app = express();
 const session = require('express-session');
 const bodyParser = require('body-parser');
 
+const PORT = 3000;
+
+app.use(cors());
+
 //Conexión a BD
 const { dbConnection } = require('./config/db');
-
-app.use(cors())
-
-const PORT = 3000;
+dbConnection();
 
 // Rutas
 const routesApp = require('./routes/routesApp');
@@ -31,8 +32,6 @@ app.use(bodyParser.json());
 
 app.use('/', routesApp);
 app.use(routesAuth);
-
-dbConnection();
 
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en http://localhost:${PORT}`);
