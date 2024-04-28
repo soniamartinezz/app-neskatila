@@ -29,18 +29,61 @@ router.all('/', async (req, res) => {
     }
 });
 
-// Ruta (GET/POST) para el guardado de traducción
-
-router.post("/create", async (req, res) =>{
+// Ruta para guardar una traducción
+router.post("/traducir", async (req, res) => {
     try {
-        const translationUserName = req.body.email;
-        const translationText = req.body.Text;
-        const translation = new Translation ({userName: translationUserName, text: translationText})
-        await translation.save()
-        res.status(201).json(translation)
+        const translationUserName = req.body.userName;
+        const translationText = req.body.texto;
+        const sourceLanguage = req.body.sourceLanguage;
+
+        let language;
+        if (sourceLanguage === 'es') {
+            language = '(español)';
+        } else if (sourceLanguage === 'eu') {
+            language = '(euskera)';
+        } else {
+            language = '';
+        }
+
+        const translation = new Translation({
+            userName: translationUserName,
+            texto: translationText,
+            sourceLanguage: sourceLanguage
+        });
+
+        await translation.save();
+        res.status(201).json(translation);
     } catch (error) {
-        console.log(error)
+        console.error(error);
+        res.status(500).json({ message: "Error al guardar la traducción." });
     }
-})
+});
+
+// Ruta para mostrar todas las traducciones guardadas
+router.get('/traducciones-guardadas/:username', async (req, res) => {
+    try {
+        const translations = await Translation.find({ userName: req.params.username });
+        // Información sobre el idioma origen de cada traducción
+        const translationsWithLanguage = translations.map(translation => ({
+            ...translation.toObject(),
+            language: translation.sourceLanguage === 'es' ? '(español)' : '(euskera)'
+        }));
+        res.json(translationsWithLanguage);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Error al obtener las traducciones guardadas." });
+    }
+});
+
+// Ruta para eliminar todas las traducciones de un usuario guardadas en BD
+router.delete('/traducciones-guardadas/:username', async (req, res) => {
+    try {
+        await Translation.deleteMany({ userName: req.params.username });
+        res.status(200).json({ message: 'Todas las traducciones se han eliminado.' });
+    } catch (error) {
+        console.error('Error al eliminar las traducciones guardadas:', error);
+        res.status(500).json({ message: 'Error al eliminar las traducciones guardadas.' });
+    }
+});
 
 module.exports = router;
