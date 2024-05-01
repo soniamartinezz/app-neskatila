@@ -6,6 +6,9 @@ const Translation = require("../models/Translation")
 // Ruta (GET/POST) para realizar la traducción
 router.all('/', async (req, res) => {
     try {
+        if(!req.headers.apikey || !req.headers.apikey.startsWith("2")){
+            res.status(403).json({"error": "No se encuentra apiKey valido"});
+        }
         // Validación de parámetros en URL
         const wordTranslate = req.query.word;
         if (!wordTranslate) {
