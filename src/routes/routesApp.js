@@ -41,7 +41,7 @@ router.post("/traducir", async (req, res) => {
 
         let language;
         if (sourceLanguage === 'es') {
-            language = '(español)';
+            language = '(Castellano)';
         } else if (sourceLanguage === 'eu') {
             language = '(euskera)';
         } else {
@@ -69,7 +69,7 @@ router.get('/traducciones-guardadas/:username', async (req, res) => {
         // Información sobre el idioma origen de cada traducción
         const translationsWithLanguage = translations.map(translation => ({
             ...translation.toObject(),
-            language: translation.sourceLanguage === 'es' ? '(español)' : '(euskera)'
+            language: translation.sourceLanguage === 'es' ? '(Castellano)' : '(euskera)'
         }));
         res.json(translationsWithLanguage);
     } catch (error) {

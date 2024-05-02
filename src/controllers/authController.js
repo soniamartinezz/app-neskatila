@@ -14,8 +14,8 @@ exports.saveUser = async (req, res) => {
 
         // Verificar si el campo de nombre de usuario está vacío
         if (!username) {
-            req.session.error = 'El nombre de usuario está vacío';
-            return res.redirect('/registro');
+          req.session.error = 'El nombre de usuario está vacío';
+          return res.redirect('/registro');
         }
 
         const database = getDatabase(firebase);
@@ -41,11 +41,6 @@ exports.saveUser = async (req, res) => {
 
         const newUserRef = push(usersRef);
         await set(newUserRef, newUser);
-
-        // Simplemente muestra los datos del usuario registrado en la consola
-        console.log('Nuevo usuario registrado:');
-        console.log('Username:', username);
-        console.log('Password:', password);
 
         res.status(200).send('Usuario registrado exitosamente');
     } catch (err) {
