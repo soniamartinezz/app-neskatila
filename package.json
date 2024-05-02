@@ -16,7 +16,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "mkdir -p dist && cp -R index.js node_modules dist"
   },
   "author": "",
   "license": "ISC"
