@@ -30,7 +30,7 @@ app.use(session({
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use('https://app-neskatila-back-qyr1zt9p3-sonias-projects-58d0e0c6.vercel.app/', routesApp);
+app.use('/', routesApp);
 app.use(routesAuth);
 
 app.listen(PORT, () => {
