@@ -5,7 +5,7 @@ const checkSessionMiddleware = (req, res, next) => {
     if (req.session && req.session.username) {
         next();
     } else {
-        res.redirect('/login');
+        res.redirect('https://app-neskatila-back-qyr1zt9p3-sonias-projects-58d0e0c6.vercel.app/login');
     }
 };
 

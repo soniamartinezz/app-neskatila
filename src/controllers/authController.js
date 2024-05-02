@@ -15,7 +15,7 @@ exports.saveUser = async (req, res) => {
         // Verificar si el campo de nombre de usuario está vacío
         if (!username) {
           req.session.error = 'El nombre de usuario está vacío';
-          return res.redirect('/registro');
+          return res.redirect('https://app-neskatila-back-qyr1zt9p3-sonias-projects-58d0e0c6.vercel.app//registro');
         }
 
         const database = getDatabase(firebase);
