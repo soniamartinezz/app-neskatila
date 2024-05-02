@@ -34,5 +34,5 @@ app.use('/', routesApp);
 app.use(routesAuth);
 
 app.listen(PORT, () => {
-  console.log(`Servidor escuchando en http://localhost:${PORT}`);
+  console.log(`Servidor escuchando en puerto: ${PORT}`);
 });
