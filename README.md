@@ -1,8 +1,8 @@
-*Cada repositorio, tanto el de Back-end como el de Front-end, posee su propio archivo README. Los dos primeros puntos son comunes a ambos. Posteriormente, cada uno contará con sus propios puntos de explicación específicos.*
+*Cada repositorio, tanto el de Back-end como el de Front-end, posee su propio archivo README. Los dos primeros puntos ("Introducción: ¿Qué es Proyecto Neskatila?" y "Repositorio del proyecto" son comunes a ambos. Posteriormente, cada uno contará con sus propios puntos de explicación específicos.*
 
 # Proyecto Neskatila (Readme Back-end):
 
-## Introducción: ¿Que es el Proyecto Neskatila?
+## Introducción: ¿Qué es el Proyecto Neskatila?
 
 Neskatila es una biblioteca de traducción que hemos desarrollado y publicado en npm (https://www.npmjs.com/package/neskatila). Esta biblioteca facilita la conversión de textos entre el castellano y el euskera en entornos web.
 
