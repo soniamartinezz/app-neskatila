@@ -2,15 +2,15 @@
 
 # Proyecto Neskatila (Readme Back-end):
 
-## Introducción: ¿Qué es el Proyecto Neskatila?
+## Introducción: ¿Qué es Proyecto Neskatila?
 
-Neskatila es una biblioteca de traducción que hemos desarrollado y publicado en npm (https://www.npmjs.com/package/neskatila). Esta biblioteca facilita la conversión de textos entre el castellano y el euskera en entornos web.
+Neskatila es una librería de traducción que hemos desarrollado y publicado en npm (https://www.npmjs.com/package/neskatila). Esta librería facilita la conversión de textos entre el castellano y el euskera en entornos web.
 
-El propósito principal de este proyecto es su presentación en un entorno web (con un Back y un Front). En este entorno web, se da a conocer Neskatila, se exhibe su código fuente, se explica su funcionamiento y se realizan demostraciones reales de su funcionalidad y de cómo puede ser utilizado en React. Además, el proyecto incluye un sistema de registro de usuarios. Este registro es necesario para el uso de la biblioteca y permite a los usuarios guardar las traducciones que han realizado.
+El propósito principal de este proyecto es su presentación en un entorno web (con un Back y un Front). En este entorno web, se da a conocer Neskatila, se exhibe su código fuente, se explica su funcionamiento y se realizan demostraciones reales de su funcionalidad y de cómo puede ser utilizado en React. Además, el proyecto incluye un sistema de registro de usuarios. Este registro es necesario para el uso de la librería, y a su vez desde el entorno web los usuarios registrados podrán guardar las traducciones realizadas.
 
 ## Repositorio del proyecto
 
-El proyecto consta de tres repositorios. Un Frontend, un Backend y la Libreria Neskatila:
+El proyecto consta de tres repositorios. Un Frontend, un Backend y la libreria Neskatila:
 
 - Backend:
 
@@ -38,7 +38,7 @@ Para el Backend:
 
 Para el Frontend:
 
-	npm run dev
+	npm run start
 
 
 ## Tecnologías utilizadas en Back-end:
@@ -49,10 +49,10 @@ Durante la realización del Back de este proyecto se han utilizado una serie de 
 * **axios** : Librería utilizada para realizar solicitudes HTTP desde Node.js a nuestra Base de datos en Atlas(Almacenamiento de traducciones de usuarios), a la API itzuli (necesaria para realizar la traducción) y a GIT (Para mostrar el código de la dependencia Neskatila)
 * **bcrypt**: Librería para cifrar contraseñas para su almacenamiento seguro en Node.js.
 * **body-parser**: Middleware usado por Express que permite tener acceso al objeto req.body cuando haces una peticion post.
-* **cors**: Biblioteca de Node.js que proporciona un middleware para habilitar el intercambio entre caso para comunicar el Frontend con el Backend al tener URLs diferentes.
+* **cors**: librería de Node.js que proporciona un middleware para habilitar el intercambio entre caso para comunicar el Frontend con el Backend al tener URLs diferentes.
 * **dotenv**: Paquete para Node.js que permite configurar o usar las variables de entorno en nuestro código.
 * **express**: Framework de backend Node.js que permite desarrollar aplicaciones de backend escalables. Ofrece el sistema de enrutamiento y una serie de características para ampliar el propio framework.
-* **firebase**: Biblioteca que proporciona herramientas para el almacenamiento de datos y autenticación de usuarios
+* **firebase**: librería que proporciona herramientas para el almacenamiento de datos y autenticación de usuarios
 * **mongoose**: Librería para Node.js que permite escribir consultas para una base de datos de MongooDB.
 
 
@@ -177,7 +177,6 @@ Módulo de rutas para autenticación en Node.js utilizando Express.
 * **(router.get('/registro') y router.post('/registro', controllerAuth.saveUser)**: La primera ruta muestra la página de registro y la segunda ruta maneja la solicitud POST para registrar un nuevo usuario. Cuando se envía el formulario de registro, se llama a la función "saveUser" importado de "controllers/authController" para guardar el nuevo usuario en la base de datos.
 
 * **(router.get('/login') y router.post('/login', controllerAuth.loginUser)**: La primera ruta muestra la página de inicio de sesión y la segunda ruta maneja la solicitud POST para iniciar sesión de un usuario. Cuando se envía el formulario de inicio de sesión, se llama a la función "loginUser" importado de "controllers/authController" para verificar las credenciales del usuario.
-
 
 
 */index.js*
